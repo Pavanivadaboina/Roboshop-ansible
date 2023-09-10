@@ -63,8 +63,9 @@
     ansible.builtin.yum :
       name : mongodb-org-shell
       state : installed
-  - name: install dependencies
-    ansible.builtin.command: mongo --host mongo.devopspractice.tech </app/schema/catalogue.js
+  - name:  load catalogue data(schema)
+    ansible.builtin.command: mongo --host mongo.devopspractice.tech < /app/schema/catalogue.js
+
   - name : restart catalogue
     ansible.builtin.service :
       name : catalogue
