@@ -15,5 +15,12 @@
       name: mongod
       state: started
       enabled: yes
-
-
+  - name : edit the mongo IP address
+    ansible.builtin.replace :
+      path : /etc/mongod.conf
+      regexp : 127.0.0.1
+      replace: 0.0.0.0
+  - name: restart the mongodb
+    ansible.builtin.service:
+      name: mongod
+      state: restarted
