@@ -4,3 +4,24 @@
   tasks:
   - name: setup NPM resource
     ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+  - name: Install nodejs
+    ansible.builtin.yum :
+      name : nodejs
+      state : installed
+  - name : check user exits or not
+    ansible.builtin.command :
+    register : output
+    ignore_errors : true
+  - name : create user roboshop
+    became : yes
+    ansible.builtin.user :
+      name : roboshop
+    when : output.rc != 0
+
+  - name : /app directory exits or not
+    ansible.builtin.stat :
+    path: /app
+    register: directory
+  - name : print the directory exist stats
+    ansible.builtin.debug:
+       msg: "output: {{directory}}"
