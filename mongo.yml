@@ -4,14 +4,15 @@
   tasks:
   - name: copy mongo repo in yum.repos.d
     ansible.builtin.copy:
-      src: mongo.repo
+      src: mongodb.repo
       dest: /etc/yum.repos.d/mongo.repo
   - name: mongodb installation
   - name: install mongodb-org
     ansible.builtin.yum:
       name: mongo
       state: installed
-  - name: start mongod
+  - name: start mongo and enable mongo
     ansible.builtin.service:
       name: mongod
       state: started
+      enabled: yes
