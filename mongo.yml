@@ -9,7 +9,7 @@
   - name: mongodb installation
   - name: install mongodb-org
     ansible.builtin.yum:
-      name: mongodb
+      name: mongo
       state: installed
   - name: start mongod
     ansible.builtin.service:
