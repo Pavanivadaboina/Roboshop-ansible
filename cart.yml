@@ -1,0 +1,5 @@
+- name: configuring cart component
+  host: cart
+  become: yes
+  tasks:
+  - name:
