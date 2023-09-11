@@ -13,5 +13,14 @@ redis.devopspractice.tech
 [user]
 user.devopspractice.tech
 
-[cart]
-cart.devopspractice.tech
+[mysql]
+mysql.devopspractice.tech
+
+[shipping]
+shipping.devopspractice.tech
+
+[rabbitmq]
+rabbitmq.devopspractice.tech
+
+[payment]
+payment.devopspractice.tech
